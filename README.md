@@ -1,7 +1,7 @@
 <h1>Introduction</h1>
 
-Backbone Bits is an amazing tool to pitch your app to the major mobile platforms that are effective for both new and existing apps. Slice and dice your audience from our dashboard analytics with live metrics.
-This documentation will help you to add and configure your apps with Backbone Bits tool. You can gain deep insight and easily respond all of your apps very quickly and with little effort using Backbone Bits's iOS and Android SDK. Moreover, you can add FAQ, Videos, Images for the guidance of the app using help module. The SDK integration process is designed to be as easy as possible with a basic setup complete in under 5 minutes.
+Backbone Bits is an amazing tool to pitch your app to the major mobile platforms that are effective for both new and existing apps.
+This documentation will help you to add and configure your apps with Backbone Bits tool. You can gain deep insight and easily respond all of your apps very quickly and with little effort using Backbone Bits's iOS SDK. The SDK integration process is designed to be as easy as possible with a basic setup complete in under 5 minutes.
 
 
 <h1>Screenshots</h1>
