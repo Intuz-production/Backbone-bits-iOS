@@ -23,10 +23,12 @@ This documentation will help you to add and configure your apps with Backbone Bi
 
 <h1>Getting Started</h1>
 
+> If you are adding "Backbonebits" folder directly in your project. Then please add "-fno-objc-arc" flag to "BBWindowRecorder.m".
 
 > Initialise Backbone Bits with API Key. You can enable or disable helper on device shake 
 
 ```
+[[Backbonebits sharedInstance] setAPIEndPoint:@"Your End Point"];
 [[Backbonebits sharedInstance] startWithApiKey:@"Your API Key"];
 [[Backbonebits sharedInstance] setEnableShakeGesture:false] //Default value true
 ```
