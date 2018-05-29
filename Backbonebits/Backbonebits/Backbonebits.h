@@ -58,6 +58,24 @@
  */
 - (void)startWithApiKey:(NSString *)apiKey;
 
+/**
+ *  Use this method to get configured API key.
+ *
+ *  @return API key in string value.
+ */
+- (NSString *)apiEndPoint;
+
+/*!
+ *  To configure your app apis url with Backbonebits SDK.
+ *  Prefered to use this method in
+ *  -application:didFinishLaunchingWithOptions:
+ *
+ *  @param apiUrl App APIs common url
+ *
+ *  @code [[Backbonebits sharedInstance] setAPIEndPoint:<Your-API-End-Point>];
+ */
+- (void)setAPIEndPoint:(NSString *)apiUrl;
+
 /*!
  *  Open help and Respond option list.
  *

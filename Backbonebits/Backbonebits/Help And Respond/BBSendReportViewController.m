@@ -378,7 +378,7 @@
     }];
 }
 
-- (IBAction)btnReportTypeTapped:(id)sender {
+- (IBAction)btnReportTypeTapped:(UIButton *)sender {
     [btnQuery setSelected:NO];
     [btnBug setSelected:NO];
     [btnFeedback setSelected:NO];

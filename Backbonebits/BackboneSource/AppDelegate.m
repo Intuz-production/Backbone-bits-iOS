@@ -40,6 +40,9 @@
     // Add Your App API Key. (com.intuz.demo)
     [[Backbonebits sharedInstance] startWithApiKey:@"<Your API Key>"];
     
+    //Endpoint : http://34.252.217.1/services/
+    [[Backbonebits sharedInstance] setAPIEndPoint:@"<Your End Point>"];
+    
     // Register remote notification.
     [[Backbonebits sharedInstance] registerForRemoteNotification];
     

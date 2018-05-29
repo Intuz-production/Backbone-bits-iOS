@@ -383,13 +383,13 @@
     [BBSendReportViewController showViewWithFileUrl:[NSURL fileURLWithPath:BB_ATTACHMENT_FILE(KBBImageFileName)] attachmentType:@(BBAttachmentTypeScreenshot)];
 }
 
-- (void)btnDrawTapped:(id)sender {
+- (void)btnDrawTapped:(UIButton *)sender {
     [sender setSelected:![sender isSelected]];
     [lblDraw setTextColor:([sender isSelected])?kBBRGBCOLOR(47,209,209):[UIColor whiteColor]];
     [viewColorPicker setHidden:![sender isSelected]];
 }
 
-- (void)btnTextTapped:(id)sender {
+- (void)btnTextTapped:(UIButton *)sender {
     [txtFieldTemp becomeFirstResponder];
     [sender setSelected:YES];
     [lblText setTextColor:([sender isSelected])?kBBRGBCOLOR(47,209,209):[UIColor whiteColor]];

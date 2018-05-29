@@ -29,6 +29,7 @@ FOUNDATION_EXPORT const unsigned char BackbonebitsVersionString[];
 
 @interface Backbonebits ()
 {
+    NSString *_apiEndPoint;
     NSString *_apiKey;
     NSString *_deviceToken;
     
@@ -48,6 +49,7 @@ FOUNDATION_EXPORT const unsigned char BackbonebitsVersionString[];
     });
     return sharedInstance;
 }
+
 
 - (void)startWithApiKey:(NSString *)apiKey {
 
@@ -74,12 +76,24 @@ FOUNDATION_EXPORT const unsigned char BackbonebitsVersionString[];
     return _apiKey;
 }
 
+- (void)setAPIEndPoint:(NSString *)apiUrl {
+    _apiEndPoint = apiUrl;
+}
+
+- (NSString *)apiEndPoint {
+    return _apiEndPoint;
+}
+
 - (BOOL)isApiKeyEntered {
     if(kBBIsSampleApp) {
         return TRUE;
     }
     if(!([self.apiKey length] > 0)) {
         NSLog(@"%@",kBBApiKeyNotEnteredMessage);
+        return FALSE;
+    }
+    else if(!([self.apiEndPoint length] > 0)) {
+        NSLog(@"%@",kBBApiUrlNotEnteredMessage);
         return FALSE;
     }
     return TRUE;

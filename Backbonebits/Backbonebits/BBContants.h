@@ -57,19 +57,17 @@
 
 #define kBBIsSampleApp NO
 
-#define kBBBaseURL @"<Your-Backbonebits-API-EndPoint-URL>"
-
 // Main Menu Options.
-#define BB_URL_GET_STATUS_MENU                          kBBBaseURL@"get-status-menu.php"
+#define BB_URL_GET_STATUS_MENU                          @"get-status-menu.php"
 
 // Responder API.
-#define BB_URL_SAVE_RESPOND                             kBBBaseURL@"save-respond.php"
-#define BB_URL_GET_RESPOND                              kBBBaseURL@"get-respond.php"
-#define BB_URL_GET_RESPOND_DETAIL                       kBBBaseURL@"get-respond-detail.php"
-#define BB_URL_GET_REQUEST_COUNT                        kBBBaseURL@"get-message-count.php"
+#define BB_URL_SAVE_RESPOND                             @"save-respond.php"
+#define BB_URL_GET_RESPOND                              @"get-respond.php"
+#define BB_URL_GET_RESPOND_DETAIL                       @"get-respond-detail.php"
+#define BB_URL_GET_REQUEST_COUNT                        @"get-message-count.php"
 
 // Get Help API.
-#define BB_URL_GET_HELP                                 kBBBaseURL@"get-help.php"
+#define BB_URL_GET_HELP                                 @"get-help.php"
 
 
 /**********************************************************************************/
@@ -151,6 +149,7 @@ static NSString *const kPastRequests = @"Past Requests";
 
 #define kBBAPIKeyErrorCode 1232
 #define kBBApiKeyNotEnteredMessage @"Please enter Api key..."
+#define kBBApiUrlNotEnteredMessage @"Please enter Api url..."
 #define kBBDefaulErrorCode 1234
 
 #define kBBDefaulAlertWaitTime .3

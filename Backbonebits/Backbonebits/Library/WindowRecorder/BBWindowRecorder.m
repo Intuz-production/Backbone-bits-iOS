@@ -270,7 +270,6 @@ CVReturn CVPixelBufferCreateWithIOSurface(
                            CFRelease(data);
                            
                            const UInt8 *bytePtr = CFDataGetBytePtr(backingData);
-                           
                            status = CVPixelBufferCreateWithBytes(kCFAllocatorDefault,
                                                                  CGImageGetWidth(image),
                                                                  CGImageGetHeight(image),
@@ -295,15 +294,25 @@ CVReturn CVPixelBufferCreateWithIOSurface(
                               
                                CVPixelBufferUnlockBaseAddress(buffer, 0);
                                CVPixelBufferRelease(buffer);
-                          } else {
+                              
+                          }
+                          else {
                               CVPixelBufferUnlockBaseAddress(buffer, 0);
                               CVPixelBufferRelease(buffer);
+
                           }
                            
                            if (screenshot.retainCount > 0) {
                                [screenshot release];
                            }
-                           CFRelease(backingData);
+                           
+                           if ([UIScreen mainScreen].bounds.size.height == 812) {
+                               CFAutorelease(backingData);
+                           }
+                           else {
+                               CFRelease(backingData);
+                           }
+                           
                        }
                    });
     

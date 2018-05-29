@@ -32,7 +32,9 @@
 
 - (void)requestWithURL:(NSString *)strUrl parameters:(NSDictionary *)parameters success:(successCallback)success failure:(failureCallback)failure {
     
-    NSMutableURLRequest *urlRequest = [[BBURLRequest serializer] requestWithMethod:@"POST" URLString:strUrl parameters:parameters error:nil];
+    NSString *finalUrl = [NSString stringWithFormat:@"%@%@",[[Backbonebits sharedInstance] apiEndPoint], strUrl];
+    
+    NSMutableURLRequest *urlRequest = [[BBURLRequest serializer] requestWithMethod:@"POST" URLString:finalUrl parameters:parameters error:nil];
     [self request:urlRequest success:^(id response, NSData *responseData) {
         if(success) {
             success(response,responseData);
@@ -52,8 +54,10 @@
         return;
     }
     
+    NSString *finalUrl = [NSString stringWithFormat:@"%@%@",[[Backbonebits sharedInstance] apiEndPoint], strUrl];
+    
     NSMutableDictionary *dictParameters = [self addDefaultParametersToDictionary:parameters];
-    NSMutableURLRequest * urlRequest = [[BBURLRequest serializer] requestWithMethod:@"POST" URLString:strUrl parameters:dictParameters error:nil];
+    NSMutableURLRequest * urlRequest = [[BBURLRequest serializer] requestWithMethod:@"POST" URLString:finalUrl parameters:dictParameters error:nil];
     [self request:urlRequest success:^(id response, NSData *responseData) {
         if([[response objectForKey:@"status"] isEqualToNumber:[NSNumber numberWithBool:YES]] || [strUrl isEqualToString:BB_URL_GET_STATUS_MENU]) {
             if(success) {
@@ -78,9 +82,17 @@
 }
 
 - (void)requestWithURLWithDefaultParameters:(NSString *)strUrl parameters:(NSDictionary *)parameters fileUrls:(NSArray *)files success:(successCallback)success failure:(failureCallback)failure {
+    if(![[Backbonebits sharedInstance] isApiKeyEntered]) {
+        if(failure) {
+            failure([NSError errorWithDomain:@"Error" code:kBBAPIKeyErrorCode userInfo:@{NSLocalizedDescriptionKey : kBBApiKeyNotEnteredMessage}]);
+        }
+        return;
+    }
+    
     NSMutableDictionary *dictParameters = [self addDefaultParametersToDictionary:parameters];
     
-    NSMutableURLRequest *urlRequest = [[BBURLRequest serializer] multipartFormRequestWithMethod:@"POST" URLString:strUrl parameters:dictParameters constructingBodyWithBlock:^(id<BBMultipartFormData>  _Nonnull formData) {
+    NSString *finalUrl = [NSString stringWithFormat:@"%@%@",[[Backbonebits sharedInstance] apiEndPoint], strUrl];
+    NSMutableURLRequest *urlRequest = [[BBURLRequest serializer] multipartFormRequestWithMethod:@"POST" URLString:finalUrl parameters:dictParameters constructingBodyWithBlock:^(id<BBMultipartFormData>  _Nonnull formData) {
         [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSString *name = @"attachments[]";
             NSString *fileName = [obj lastPathComponent];
