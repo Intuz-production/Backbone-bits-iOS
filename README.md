@@ -1,4 +1,7 @@
-<h1>Introduction</h1>
+## About Intuz
+This library is maintained by [Intuz](https://www.intuz.com) — an AI-first software development company specializing in [iOS app development](https://www.intuz.com/ios-development)
+and [mobile app development](https://www.intuz.com/custom-app-development).
+<br><br>
 
 Backbone Bits is an amazing tool to pitch your app to the major mobile platforms that are effective for both new and existing apps.
 This documentation will help you to add and configure your apps with Backbone Bits tool. You can gain deep insight and easily respond all of your apps very quickly and with little effort using Backbone Bits's iOS SDK. The SDK integration process is designed to be as easy as possible with a basic setup complete in under 5 minutes.
